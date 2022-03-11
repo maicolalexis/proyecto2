@@ -69,7 +69,13 @@ class cursoController extends Controller
      */
     public function show($id)
     {
-        //
+
+        // creo un array con informacion del registro
+        // del id que viajo en la solicitud usando el metodo find
+        $cursito = curso::find($id);
+        //Asocio el array a la vista usando el compact
+        //return $cursito;
+        return view('cursos.show', compact('cursito'));
     }
 
     /**

@@ -14,7 +14,7 @@
             las variables usando la doble llave--}}
 {{--Es una regla en todos los lenguajes que el foreach lleve un alias para el array--}}
 
-            <div class="col">
+            <div class="col-sm">
                 <div class="card" style="width: 18rem; margin-top:30px;">
                     <center>
                         <img src="{{ Storage::url($co->img) }}" class="card-img-top" alt="..." style="width: 85%; margin-top:30px;"  >
@@ -22,10 +22,10 @@
                     <div class="card-body">
 
                         <li class="list-group-item">{{ $co->nombre }}</li>
-                        <li class="list-group-item">{{ $co->descripcion }}</li>
 
                     <br>
-                    <a href="#" class="btn btn-primary" style="margin-left:75px">Ver más</a>
+                    {{--Se necesita el id para ver un registro en particular--}}
+                    <a href="/cursos/{{$co->id}}" class="btn btn-dark" style="margin-left:75px">Ver más</a>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ class CreateCursosTable extends Migration
 
     /**
      * Reverse the migrations.
-     * 
+     *
      * @return void
      */
     public function down() // oy de baja la tabla

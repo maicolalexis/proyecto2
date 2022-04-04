@@ -24,7 +24,7 @@ class storePersonajeRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' =>'required|max:10',
+            'nombre' =>'required|max:20',
             'img' => 'required|image'
 
         ];

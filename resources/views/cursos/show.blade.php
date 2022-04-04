@@ -9,8 +9,18 @@
     <img src="{{ Storage::url($cursito->img) }}" class="card-img-top" alt="..." style="width: 85%; margin-top:30px;"  >
 <div class="card-body">
     <li class="list-group-item">{{ $cursito->descripcion }}</li>
-</div>
-    <a href="/cursos/{{$cursito->id}}/edit" class="btn btn-dark" style="margin-left:75px">Editar cursos</a>
+    <li class="list-group-item">{{ $cursito->horas}}</li>
 </div>
 
+
+    <a href="/cursos/{{$cursito->id}}/edit" class="btn btn-dark" >Editar cursos</a>
+<br><br>
+
+
+<form class="form-group" action="/cursos/{{$cursito->id}}" method="POST">
+    @csrf
+   @method ('DELETE')
+    <button type="submit" class="btn btn-danger">--Eliminar--</button>
+</form>
 @endsection
+

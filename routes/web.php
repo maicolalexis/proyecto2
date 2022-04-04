@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\miprimerController;
 
 use App\Http\Controllers\heladosController;
+
+use App\Http\Controllers\cursoController;
+use App\Http\Controllers\EstudianteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,5 +71,7 @@ Route::get('precio/{valor}', [controladorPrecios::class,'precio']);
 
 Route::get('precio/{nombre}/{valor}', [controladorPrecios::class,'getIva']);
 
-
+Route::resource('cursos', cursoController::class);
 Route::resource('docente', DocenteController::class);
+Route::resource('estudiante', EstudianteController::class);
+

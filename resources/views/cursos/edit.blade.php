@@ -18,9 +18,14 @@
         <input type="text" name="descripcion" value="{{$cursito->descripcion}}" class="form-control" id="descripcurso" aria-describedby="emailHelp">
     </div>
     <div class="form-group">
+        <label for="horas">Modifique la descripcion del curso:</label>
+        <input type="number" name="horas" value="{{$cursito->horas}}" class="form-control" id="horas" >
+    </div>
+    <div class="form-group">
         <label for="img"><b>Cargar nueva imagen del Curso</b></label>
         <input name="img" type="file" id="img" value="{{$cursito->img}}">
     </div>
+
     <button type="submit" class="btn btn-danger">Crear</button>
 </form>
 

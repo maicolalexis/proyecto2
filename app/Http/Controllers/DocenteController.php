@@ -62,7 +62,7 @@ class DocenteController extends Controller
 
 
         if ($request->hasfile('img')){
-            $docente-> img = $request->file('img')->store('public');
+            $docente-> img = $request->file('img')->store('public/docente');
 
         }
         $docente->titulos = $request->input('titulos');
@@ -130,6 +130,14 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $docente = Docente::find($id);
+        $urlImagenBD = $docente->img;
+
+        $nombreImagen = str_replace('public/','\storage\\',$urlImagenBD);
+        $rutaCompleta = public_path().$nombreImagen;
+        unlink ($rutaCompleta);
+        $docente ->delete();
+        return 'Eliminado';
+
     }
 }

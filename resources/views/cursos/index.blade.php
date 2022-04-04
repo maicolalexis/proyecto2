@@ -15,7 +15,7 @@
 {{--Es una regla en todos los lenguajes que el foreach lleve un alias para el array--}}
 
             <div class="col-sm">
-                <div> soy hijo de puta</div>
+
                 <div class="card" style="width: 18rem; margin-top:30px;">
                     <center>
                         <img src="{{ Storage::url($co->img) }}" class="card-img-top" alt="..." style="width: 230px; height: 180px; margin: 10px"  >

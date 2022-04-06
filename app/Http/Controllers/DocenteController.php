@@ -70,7 +70,7 @@ class DocenteController extends Controller
 
         //con esto ejecutamos comandos para guardar
         $docente->save();
-        return 'Lograste guardar';
+        return '<script>alert("guardaste");</script>';
 
     }
      /**
@@ -116,7 +116,7 @@ class DocenteController extends Controller
         //con la info que viene desde el request
         $docente->fill($request->except('imagen'));
         if ($request->hasfile('img')){
-            $docente-> img = $request->file('img')->store('public');
+            $docente-> img = $request->file('img')->store('public/docente');
         }
         $docente->save();
         return 'recurso Actualizado ';
@@ -130,14 +130,19 @@ class DocenteController extends Controller
      */
     public function destroy($id)
     {
-        $docente = Docente::find($id);
-        $urlImagenBD = $docente->img;
 
-        $nombreImagen = str_replace('public/','\storage\\',$urlImagenBD);
-        $rutaCompleta = public_path().$nombreImagen;
-        unlink ($rutaCompleta);
-        $docente ->delete();
-        return 'Eliminado';
 
-    }
+
+
+            $docentes = Docente::find($id);
+            $urlImagenBD = $docentes->img;
+
+            $nombreImagen = str_replace('public/','\storage\\',$urlImagenBD);
+            $rutaCompleta = public_path().$nombreImagen;
+            unlink ($rutaCompleta);
+
+            $docentes ->delete();
+            return redirect()->route('docente.index')->with('eliminar','okey');
+            }
+
 }

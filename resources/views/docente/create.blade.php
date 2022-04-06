@@ -34,10 +34,7 @@
         <input id="apellido" name="apellido" type="text" class="form-control" aria-describedby="emailHelp">
     </div>
 
-    <div class="form-group">
-        <label for="img"><b>Imagen del Curso</b></label>
-        <input name="img" type="file" id="img">
-    </div>
+
     <div class="form-group">
         <label for="titulos">titulo docente</label>
         <input type="text" name="titulos" class="form-control" id="titulos" aria-describedby="emailHelp">
@@ -46,7 +43,11 @@
         <label for="cursoAsociado">cursoAsociado</label>
         <input type="text" name="cursoAsociado" class="form-control" id="cursoAsociado" aria-describedby="emailHelp">
     </div>
-    <button type="submit" class="btn btn-danger">Crear</button>
+    <div class="form-group">
+        <label for="img"><b>Imagen del Curso</b></label>
+        <input name="img" type="file" id="img">
+    </div>
+    <button type="submit" class="btn btn-danger" id="botoncrear">Crear</button>
 </form>
 
 @endsection

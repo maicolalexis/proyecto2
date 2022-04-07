@@ -19,11 +19,11 @@
     <a href="/docente/{{$docente->id}}/edit" class="btn btn-dark" >Editar cursos</a>
 <br>
 <br>
-<form id="form-eliminar" class="form-group" action="/docente/{{$docente->id}}" method="POST">
+<form id="boton" class="form-group" action="/docente/{{$docente->id}}" method="POST">
 
     @csrf
     @method ('DELETE')
-    <button type="submit" class="btn btn-danger" >eliminar</button>
+    <button   type="submit" class="btn btn-danger submit" >eliminar</button>
 
 </form>
 
@@ -31,9 +31,9 @@
 </div>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    var boton = document.querySelector("#boton");
+    boton.addEventListener('click', () =>{
 
-    $(`#form-eliminar`).submit(function(e){
-        e.preventDefault();
             Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to revert this!",
@@ -50,8 +50,8 @@
         'success'
         )
     }
-    })
-        });
+    });}
+
 </script>
 @endsection
 

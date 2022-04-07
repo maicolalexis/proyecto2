@@ -70,7 +70,7 @@ class DocenteController extends Controller
 
         //con esto ejecutamos comandos para guardar
         $docente->save();
-        return '<script>alert("guardaste");</script>';
+        return redirect()->route('docente.index').'<script>alert("guardaste");</script>';
 
     }
      /**
@@ -111,15 +111,15 @@ class DocenteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $docente = Docente::find($id);
+        $docentes = Docente::find($id);
         //con fill lleno todos los campos de la tabla cursos
         //con la info que viene desde el request
-        $docente->fill($request->except('imagen'));
+        $docentes->fill($request->except('imagen'));
         if ($request->hasfile('img')){
-            $docente-> img = $request->file('img')->store('public/docente');
+            $docentes-> img = $request->file('img')->store('public/docente');
         }
-        $docente->save();
-        return 'recurso Actualizado ';
+        $docentes->save();
+        return redirect()->route('docente.index').'<script>alert("Cambios Guardados");</script>';
     }
 
     /**

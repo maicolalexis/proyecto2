@@ -66,7 +66,7 @@ class cursoController extends Controller
 
         //con esto ejecutamos comandos para guardar
         $cursito->save();
-        return 'Lograste guardar';
+        return redirect()->route('cursos.index').'<script>alert("Guardado exitosamente");</script>';
 
     }
 
@@ -116,7 +116,7 @@ class cursoController extends Controller
             $cursito-> img = $request->file('img')->store('public/cursos');
         }
         $cursito->save();
-        return 'recurso Actualizado ';
+        return redirect()->route('cursos.index').'<script>alert("Cambios Guardados");</script>';
     }
 
     /**
@@ -134,7 +134,7 @@ class cursoController extends Controller
         $rutaCompleta = public_path().$nombreImagen;
         unlink ($rutaCompleta);
         $cursito ->delete();
-        return 'Eliminado';
+        return redirect()->route('cursos.index').'<script>alert("la persona fue eliminada");</script>';
 
     }
 }
